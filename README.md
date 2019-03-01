@@ -1,6 +1,6 @@
 # SiTAiRIS_CP
 SiTAiRIS: Course Project <br>
-Theme: Airport <br>
+Theme: Airport (Automated flight control system)<br>
  <br>
 Application type: web application <br>
 Language: JAVA  <br>
