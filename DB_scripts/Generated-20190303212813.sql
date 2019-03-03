@@ -1,0 +1,47 @@
+--------------------------------------------------------
+--  File created - воскресенье-марта-03-2019   
+--------------------------------------------------------
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PASS_SEQ.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PILOT_SEQ.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\AIRLINES.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\AIRPORTS.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\CANCELED_TICKETS.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\FLIGHTS.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PASSENGERS.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PILOTS.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PRICES.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\TICKETS.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\USERS.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\AIRLINES_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\AIRPORTS_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\CANCELED_TICKETS_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\FLIGHTS_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PASSENGERS_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PILOTS_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PRICES_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\TICKETS_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\USERS_DATA_TABLE.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007777.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007778.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007779.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007780.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007781.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007782.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007799.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007985.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\SYS_C007988.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\UNQ_PAS_NUM.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\AIRLINES_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\AIRPORTS_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\CANCELED_TICKETS_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\FLIGHTS_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PASSENGERS_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PILOTS_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PRICES_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\TICKETS_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\USERS_CONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\CANCELED_TICKETS_REFCONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\FLIGHTS_REFCONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PASSENGERS_REFCONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\PRICES_REFCONSTRAINT.sql
+@D:\Анастасия Щербук\БГУИР\3 курс\SiTAiRIS_CP\DB_scripts\TICKETS_REFCONSTRAINT.sql
