@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Login to the System"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <div class="registry-auth">
+                <h:link value="Login" id="onAuth" styleClass="btn btn-secondary btn-lg disabled" /> 
+                <h:link value="Registry" id="onRegistry" styleClass="btn btn-secondary btn-lg"/>
+            </div>
+            <div class ="auth">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Login" for="username" />
+                        <h:inputText id="username" value="#{auth.username}" title="Login" required="true" requiredMessage="Login is empty!"/>
+                        <h:outputLabel value="Password" for="password" />
+                        <h:inputSecret id="password" value="#{auth.password}" title="Password" required="true" requiredMessage="Password is empty!"/>
+                    </h:panelGrid>
+                    <br />
+                    <h:commandLink action="#{auth.login()}" value="Login to Account" />
+                </h:form>
+            </div>
+            <br />            
+            <h:form styleClass="registry" style="display: none;">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Login" for="newusername" />
+                    <h:inputText id="newusername" value="#{registry.login}" title="Login" required="true" requiredMessage="Password is empty!"/>
+                    <h:outputLabel value="Password" for="newpassword" />
+                    <h:inputSecret  id="newpassword" value="#{registry.password}" title="Password" required="true" requiredMessage="Password is empty!"/>
+                    <h:outputLabel value="Confirm Password" for="confpassword" />
+                    <h:inputSecret  id="confpassword" value="#{registry.confPassword}" title="Пароль" required="true" requiredMessage="Confirm Password is empty!"/>
+                    <h:outputLabel value="Name" for="name" />
+                    <h:inputText id="name" value="#{registry.name}" title="Name" required="true" requiredMessage="Name is empty!"/>
+                    <h:outputLabel value="Surname" for="surname" />
+                    <h:inputText id="surname" value="#{registry.surname}" title="Surname" required="true" requiredMessage="Surname is empty!"/>
+                    <h:outputLabel value="Passport ID" for="passport" />
+                    <h:inputText id="passport" value="#{registry.passport}" title="Passport ID" required="true" requiredMessage="Passport ID is empty!"/>
+                    <h:outputLabel value="Country" for="country" />
+                    <h:inputText id="country" value="#{registry.country}" title="Country" required="true" requiredMessage="Country is empty!"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{registry.doRegistry()}" value="To Register" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
