@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTicketsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTicketsLabel_ticketCode}" for="ticketCode" />
+                    <h:inputText id="ticketCode" value="#{ticketsController.selected.ticketCode}" title="#{bundle.EditTicketsTitle_ticketCode}" required="true" requiredMessage="#{bundle.EditTicketsRequiredMessage_ticketCode}"/>
+                    <h:outputLabel value="#{bundle.EditTicketsLabel_ticketStatus}" for="ticketStatus" />
+                    <h:selectOneMenu id="ticketStatus" value="#{ticketsController.selected.ticketStatus}" title="#{bundle.EditTicketsTitle_ticketStatus}" required="true" requiredMessage="#{bundle.EditTicketsRequiredMessage_ticketStatus}">
+                        <f:selectItems value="#{ticketsController.activities}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTicketsLabel_passId}" for="passId" />
+                    <h:selectOneMenu id="passId" value="#{ticketsController.selected.passId}" title="#{bundle.EditTicketsTitle_passId}" required="true" requiredMessage="#{bundle.EditTicketsRequiredMessage_passId}">
+                        <f:selectItems value="#{passengersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditTicketsLabel_priceId}" for="priceId" />
+                    <h:selectOneMenu id="priceId" value="#{ticketsController.selected.priceId}" title="#{bundle.EditTicketsTitle_priceId}" required="true" requiredMessage="#{bundle.EditTicketsRequiredMessage_priceId}">
+                        <f:selectItems value="#{pricesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{ticketsController.update}" value="#{bundle.EditTicketsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTicketsViewLink}"/>
+                <br />
+                <h:commandLink action="#{ticketsController.prepareList}" value="#{bundle.EditTicketsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTicketsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

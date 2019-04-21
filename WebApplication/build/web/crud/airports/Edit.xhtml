@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAirportsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAirportsLabel_airportCode}" for="airportCode" />
+                    <h:inputText id="airportCode" value="#{airportsController.selected.airportCode}" title="#{bundle.EditAirportsTitle_airportCode}" required="true" requiredMessage="#{bundle.EditAirportsRequiredMessage_airportCode}"/>
+                    <h:outputLabel value="#{bundle.EditAirportsLabel_airportName}" for="airportName" />
+                    <h:inputText id="airportName" value="#{airportsController.selected.airportName}" title="#{bundle.EditAirportsTitle_airportName}" required="true" requiredMessage="#{bundle.EditAirportsRequiredMessage_airportName}"/>
+                    <h:outputLabel value="#{bundle.EditAirportsLabel_airportLocation}" for="airportLocation" />
+                    <h:inputText id="airportLocation" value="#{airportsController.selected.airportLocation}" title="#{bundle.EditAirportsTitle_airportLocation}" required="true" requiredMessage="#{bundle.EditAirportsRequiredMessage_airportLocation}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{airportsController.update}" value="#{bundle.EditAirportsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAirportsViewLink}"/>
+                <br />
+                <h:commandLink action="#{airportsController.prepareList}" value="#{bundle.EditAirportsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAirportsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

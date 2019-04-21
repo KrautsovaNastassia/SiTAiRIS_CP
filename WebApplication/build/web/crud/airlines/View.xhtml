@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAirlinesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAirlinesLabel_airlinesIcaoCode}"/>
+                    <h:outputText value="#{airlinesController.selected.airlinesIcaoCode}" title="#{bundle.ViewAirlinesTitle_airlinesIcaoCode}"/>
+                    <h:outputText value="#{bundle.ViewAirlinesLabel_airlineName}"/>
+                    <h:outputText value="#{airlinesController.selected.airlineName}" title="#{bundle.ViewAirlinesTitle_airlineName}"/>
+                    <h:outputText value="#{bundle.ViewAirlinesLabel_airlineCallSign}"/>
+                    <h:outputText value="#{airlinesController.selected.airlineCallSign}" title="#{bundle.ViewAirlinesTitle_airlineCallSign}"/>
+                    <h:outputText value="#{bundle.ViewAirlinesLabel_airlineCountry}"/>
+                    <h:outputText value="#{airlinesController.selected.airlineCountry}" title="#{bundle.ViewAirlinesTitle_airlineCountry}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{airlinesController.destroyAndView}" value="#{bundle.ViewAirlinesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAirlinesEditLink}"/>
+                <br />
+                <h:commandLink action="#{airlinesController.prepareCreate}" value="#{bundle.ViewAirlinesCreateLink}" />
+                <br />
+                <h:commandLink action="#{airlinesController.prepareList}" value="#{bundle.ViewAirlinesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAirlinesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

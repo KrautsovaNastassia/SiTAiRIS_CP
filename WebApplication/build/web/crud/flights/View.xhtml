@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFlightsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFlightsLabel_flightCode}"/>
+                    <h:outputText value="#{flightsController.selected.flightCode}" title="#{bundle.ViewFlightsTitle_flightCode}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_flightDistance}"/>
+                    <h:outputText value="#{flightsController.selected.flightDistance}" title="#{bundle.ViewFlightsTitle_flightDistance}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_FDate}"/>
+                    <h:outputText value="#{flightsController.selected.FDate}" title="#{bundle.ViewFlightsTitle_FDate}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_TDate}"/>
+                    <h:outputText value="#{flightsController.selected.TDate}" title="#{bundle.ViewFlightsTitle_TDate}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_numOfEconomy}"/>
+                    <h:outputText value="#{flightsController.selected.numOfEconomy}" title="#{bundle.ViewFlightsTitle_numOfEconomy}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_numOfBusiness}"/>
+                    <h:outputText value="#{flightsController.selected.numOfBusiness}" title="#{bundle.ViewFlightsTitle_numOfBusiness}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_numOfFirst}"/>
+                    <h:outputText value="#{flightsController.selected.numOfFirst}" title="#{bundle.ViewFlightsTitle_numOfFirst}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_airlineCode}"/>
+                    <h:outputText value="#{flightsController.selected.airlineCode}" title="#{bundle.ViewFlightsTitle_airlineCode}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_airportTo}"/>
+                    <h:outputText value="#{flightsController.selected.airportTo}" title="#{bundle.ViewFlightsTitle_airportTo}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_airportFrom}"/>
+                    <h:outputText value="#{flightsController.selected.airportFrom}" title="#{bundle.ViewFlightsTitle_airportFrom}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_copilotId}"/>
+                    <h:outputText value="#{flightsController.selected.copilotId}" title="#{bundle.ViewFlightsTitle_copilotId}"/>
+                    <h:outputText value="#{bundle.ViewFlightsLabel_pilotId}"/>
+                    <h:outputText value="#{flightsController.selected.pilotId}" title="#{bundle.ViewFlightsTitle_pilotId}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{flightsController.destroyAndView}" value="#{bundle.ViewFlightsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFlightsEditLink}"/>
+                <br />
+                <h:commandLink action="#{flightsController.prepareCreate}" value="#{bundle.ViewFlightsCreateLink}" />
+                <br />
+                <h:commandLink action="#{flightsController.prepareList}" value="#{bundle.ViewFlightsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFlightsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

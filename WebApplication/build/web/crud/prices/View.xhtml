@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPricesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPricesLabel_priceId}"/>
+                    <h:outputText value="#{pricesController.selected.priceId}" title="#{bundle.ViewPricesTitle_priceId}"/>
+                    <h:outputText value="#{bundle.ViewPricesLabel_travelClass}"/>
+                    <h:outputText value="#{pricesController.selected.travelClass}" title="#{bundle.ViewPricesTitle_travelClass}"/>
+                    <h:outputText value="#{bundle.ViewPricesLabel_ticketPrice}"/>
+                    <h:outputText value="#{pricesController.selected.ticketPrice}" title="#{bundle.ViewPricesTitle_ticketPrice}"/>
+                    <h:outputText value="#{bundle.ViewPricesLabel_flightCode}"/>
+                    <h:outputText value="#{pricesController.selected.flightCode}" title="#{bundle.ViewPricesTitle_flightCode}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pricesController.destroyAndView}" value="#{bundle.ViewPricesDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPricesEditLink}"/>
+                <br />
+                <h:commandLink action="#{pricesController.prepareCreate}" value="#{bundle.ViewPricesCreateLink}" />
+                <br />
+                <h:commandLink action="#{pricesController.prepareList}" value="#{bundle.ViewPricesShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPricesIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

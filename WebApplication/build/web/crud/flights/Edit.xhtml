@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditFlightsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_flightCode}" for="flightCode" />
+                    <h:inputText id="flightCode" value="#{flightsController.selected.flightCode}" title="#{bundle.EditFlightsTitle_flightCode}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_flightCode}"/>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_flightDistance}" for="flightDistance" />
+                    <h:inputText id="flightDistance" value="#{flightsController.selected.flightDistance}" title="#{bundle.EditFlightsTitle_flightDistance}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_flightDistance}"/>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_FDate}" for="FDate" />
+                    <h:inputText id="FDate" value="#{flightsController.selected.FDate}" title="#{bundle.EditFlightsTitle_FDate}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_FDate}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_TDate}" for="TDate" />
+                    <h:inputText id="TDate" value="#{flightsController.selected.TDate}" title="#{bundle.EditFlightsTitle_TDate}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_TDate}">
+                        <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_numOfEconomy}" for="numOfEconomy" />
+                    <h:inputText id="numOfEconomy" value="#{flightsController.selected.numOfEconomy}" title="#{bundle.EditFlightsTitle_numOfEconomy}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_numOfEconomy}"/>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_numOfBusiness}" for="numOfBusiness" />
+                    <h:inputText id="numOfBusiness" value="#{flightsController.selected.numOfBusiness}" title="#{bundle.EditFlightsTitle_numOfBusiness}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_numOfBusiness}"/>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_numOfFirst}" for="numOfFirst" />
+                    <h:inputText id="numOfFirst" value="#{flightsController.selected.numOfFirst}" title="#{bundle.EditFlightsTitle_numOfFirst}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_numOfFirst}"/>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_airlineCode}" for="airlineCode" />
+                    <h:selectOneMenu id="airlineCode" value="#{flightsController.selected.airlineCode}" title="#{bundle.EditFlightsTitle_airlineCode}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_airlineCode}">
+                        <f:selectItems value="#{airlinesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_airportTo}" for="airportTo" />
+                    <h:selectOneMenu id="airportTo" value="#{flightsController.selected.airportTo}" title="#{bundle.EditFlightsTitle_airportTo}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_airportTo}">
+                        <f:selectItems value="#{airportsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_airportFrom}" for="airportFrom" />
+                    <h:selectOneMenu id="airportFrom" value="#{flightsController.selected.airportFrom}" title="#{bundle.EditFlightsTitle_airportFrom}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_airportFrom}">
+                        <f:selectItems value="#{airportsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_copilotId}" for="copilotId" />
+                    <h:selectOneMenu id="copilotId" value="#{flightsController.selected.copilotId}" title="#{bundle.EditFlightsTitle_copilotId}" >
+                        <f:selectItems value="#{pilotsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditFlightsLabel_pilotId}" for="pilotId" />
+                    <h:selectOneMenu id="pilotId" value="#{flightsController.selected.pilotId}" title="#{bundle.EditFlightsTitle_pilotId}" required="true" requiredMessage="#{bundle.EditFlightsRequiredMessage_pilotId}">
+                        <f:selectItems value="#{pilotsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{flightsController.update}" value="#{bundle.EditFlightsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditFlightsViewLink}"/>
+                <br />
+                <h:commandLink action="#{flightsController.prepareList}" value="#{bundle.EditFlightsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditFlightsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

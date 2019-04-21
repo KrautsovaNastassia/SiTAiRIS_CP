@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPilotsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPilotsLabel_pilotId}"/>
+                    <h:outputText value="#{pilotsController.selected.pilotId}" title="#{bundle.ViewPilotsTitle_pilotId}"/>
+                    <h:outputText value="#{bundle.ViewPilotsLabel_name}"/>
+                    <h:outputText value="#{pilotsController.selected.name}" title="#{bundle.ViewPilotsTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewPilotsLabel_surname}"/>
+                    <h:outputText value="#{pilotsController.selected.surname}" title="#{bundle.ViewPilotsTitle_surname}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pilotsController.destroyAndView}" value="#{bundle.ViewPilotsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPilotsEditLink}"/>
+                <br />
+                <h:commandLink action="#{pilotsController.prepareCreate}" value="#{bundle.ViewPilotsCreateLink}" />
+                <br />
+                <h:commandLink action="#{pilotsController.prepareList}" value="#{bundle.ViewPilotsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPilotsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

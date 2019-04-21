@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>FLIGHT Control Panel</title>
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet"/> 
+        <h:outputStylesheet library="css" name="jsfcrud.css"/>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <h:outputScript library="js" name="mainstyle.js" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    </h:head>
+
+    <h:body>
+        <main class="container">
+                <h1>
+                    <div class="main-title">
+                        <ui:insert name="title">Default Title</ui:insert>   
+                    </div>
+                    <h:form styleClass="exit-class">
+                        <h:commandLink action="#{auth.clearCurrentUser()}" value="EXIT"/>
+                    </h:form>   
+                </h1>     
+            <div class="main-body">
+                <p>
+                    <ui:insert name="body">Default Body</ui:insert>
+                </p>
+            </div>
+        </main>
+    </h:body>
+
+</html>

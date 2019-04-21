@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPricesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPricesLabel_priceId}" for="priceId" />
+                    <h:inputText id="priceId" value="#{pricesController.selected.priceId}" title="#{bundle.EditPricesTitle_priceId}" required="true" requiredMessage="#{bundle.EditPricesRequiredMessage_priceId}"/>
+                    <h:outputLabel value="#{bundle.EditPricesLabel_travelClass}" for="travelClass" />
+                    
+                    <h:selectOneMenu id="travelClass" value="#{pricesController.selected.travelClass}" title="#{bundle.EditPricesTitle_priceId}" required="true" requiredMessage="#{bundle.EditPricesRequiredMessage_priceId}">
+                        <f:selectItems value="#{pricesController.travelClasses}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{bundle.EditPricesLabel_ticketPrice}" for="ticketPrice" />
+                    <h:inputText id="ticketPrice" value="#{pricesController.selected.ticketPrice}" title="#{bundle.EditPricesTitle_ticketPrice}" required="true" requiredMessage="#{bundle.EditPricesRequiredMessage_ticketPrice}"/>
+                    <h:outputLabel value="#{bundle.EditPricesLabel_flightCode}" for="flightCode" />
+                    <h:selectOneMenu id="flightCode" value="#{pricesController.selected.flightCode}" title="#{bundle.EditPricesTitle_flightCode}" required="true" requiredMessage="#{bundle.EditPricesRequiredMessage_flightCode}">
+                        <f:selectItems value="#{flightsController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{pricesController.update}" value="#{bundle.EditPricesSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPricesViewLink}"/>
+                <br />
+                <h:commandLink action="#{pricesController.prepareList}" value="#{bundle.EditPricesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPricesIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
