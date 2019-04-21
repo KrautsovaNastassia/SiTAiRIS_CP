@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListFlightsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListFlightsEmpty}" rendered="#{flightsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{flightsController.items.rowCount > 0}">
+                    <h:commandLink action="#{flightsController.previous}" value="#{bundle.Previous} #{flightsController.pagination.pageSize}" rendered="#{flightsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{flightsController.next}" value="#{bundle.Next} #{flightsController.pagination.pageSize}" rendered="#{flightsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{flightsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_flightCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flightCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_flightDistance}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.flightDistance}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_FDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.FDate}">
+                                <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_TDate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.TDate}">
+                                <f:convertDateTime pattern="dd.MM.yyyy HH:mm" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_numOfEconomy}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numOfEconomy}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_numOfBusiness}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numOfBusiness}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_numOfFirst}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numOfFirst}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_airlineCode}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.airlineCode}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_airportTo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.airportTo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_airportFrom}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.airportFrom}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_copilotId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.copilotId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListFlightsTitle_pilotId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.pilotId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{flightsController.prepareView}" value="#{bundle.ListFlightsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{flightsController.prepareEdit}" value="#{bundle.ListFlightsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{flightsController.destroy}" value="#{bundle.ListFlightsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{flightsController.prepareCreate}" value="#{bundle.ListFlightsCreateLink}"/>
+                <br />
+                <br />
+                <input type="text" id="findField" value="" title="Поле для поиска" />
+                <select id="findList"  >
+                </select>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListFlightsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

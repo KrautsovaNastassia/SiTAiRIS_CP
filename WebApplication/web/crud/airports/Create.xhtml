@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAirportsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAirportsLabel_airportCode}" for="airportCode" />
+                    <h:inputText id="airportCode" value="#{airportsController.selected.airportCode}" title="#{bundle.CreateAirportsTitle_airportCode}" required="true" requiredMessage="#{bundle.CreateAirportsRequiredMessage_airportCode}"/>
+                    <h:outputLabel value="#{bundle.CreateAirportsLabel_airportName}" for="airportName" />
+                    <h:inputText id="airportName" value="#{airportsController.selected.airportName}" title="#{bundle.CreateAirportsTitle_airportName}" required="true" requiredMessage="#{bundle.CreateAirportsRequiredMessage_airportName}"/>
+                    <h:outputLabel value="#{bundle.CreateAirportsLabel_airportLocation}" for="airportLocation" />
+                    <h:inputText id="airportLocation" value="#{airportsController.selected.airportLocation}" title="#{bundle.CreateAirportsTitle_airportLocation}" required="true" requiredMessage="#{bundle.CreateAirportsRequiredMessage_airportLocation}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{airportsController.create}" value="#{bundle.CreateAirportsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{airportsController.prepareList}" value="#{bundle.CreateAirportsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAirportsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

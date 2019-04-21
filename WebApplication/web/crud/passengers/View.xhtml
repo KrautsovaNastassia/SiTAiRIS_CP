@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPassengersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPassengersLabel_passId}"/>
+                    <h:outputText value="#{passengersController.selected.passId}" title="#{bundle.ViewPassengersTitle_passId}"/>
+                    <h:outputText value="#{bundle.ViewPassengersLabel_firstName}"/>
+                    <h:outputText value="#{passengersController.selected.firstName}" title="#{bundle.ViewPassengersTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewPassengersLabel_lastName}"/>
+                    <h:outputText value="#{passengersController.selected.lastName}" title="#{bundle.ViewPassengersTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewPassengersLabel_country}"/>
+                    <h:outputText value="#{passengersController.selected.country}" title="#{bundle.ViewPassengersTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewPassengersLabel_passportNum}"/>
+                    <h:outputText value="#{passengersController.selected.passportNum}" title="#{bundle.ViewPassengersTitle_passportNum}"/>
+                    <h:outputText value="#{bundle.ViewPassengersLabel_username}"/>
+                    <h:outputText value="#{passengersController.selected.username}" title="#{bundle.ViewPassengersTitle_username}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{passengersController.destroyAndView}" value="#{bundle.ViewPassengersDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPassengersEditLink}"/>
+                <br />
+                <h:commandLink action="#{passengersController.prepareCreate}" value="#{bundle.ViewPassengersCreateLink}" />
+                <br />
+                <h:commandLink action="#{passengersController.prepareList}" value="#{bundle.ViewPassengersShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPassengersIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

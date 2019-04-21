@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAirlinesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAirlinesLabel_airlinesIcaoCode}" for="airlinesIcaoCode" />
+                    <h:inputText id="airlinesIcaoCode" value="#{airlinesController.selected.airlinesIcaoCode}" title="#{bundle.CreateAirlinesTitle_airlinesIcaoCode}" required="true" requiredMessage="#{bundle.CreateAirlinesRequiredMessage_airlinesIcaoCode}"/>
+                    <h:outputLabel value="#{bundle.CreateAirlinesLabel_airlineName}" for="airlineName" />
+                    <h:inputText id="airlineName" value="#{airlinesController.selected.airlineName}" title="#{bundle.CreateAirlinesTitle_airlineName}" required="true" requiredMessage="#{bundle.CreateAirlinesRequiredMessage_airlineName}"/>
+                    <h:outputLabel value="#{bundle.CreateAirlinesLabel_airlineCallSign}" for="airlineCallSign" />
+                    <h:inputText id="airlineCallSign" value="#{airlinesController.selected.airlineCallSign}" title="#{bundle.CreateAirlinesTitle_airlineCallSign}" required="true" requiredMessage="#{bundle.CreateAirlinesRequiredMessage_airlineCallSign}"/>
+                    <h:outputLabel value="#{bundle.CreateAirlinesLabel_airlineCountry}" for="airlineCountry" />
+                    <h:inputText id="airlineCountry" value="#{airlinesController.selected.airlineCountry}" title="#{bundle.CreateAirlinesTitle_airlineCountry}" required="true" requiredMessage="#{bundle.CreateAirlinesRequiredMessage_airlineCountry}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{airlinesController.create}" value="#{bundle.CreateAirlinesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{airlinesController.prepareList}" value="#{bundle.CreateAirlinesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAirlinesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
