@@ -39,7 +39,7 @@ public class AuthKravcova  implements Serializable{
                 return tempUser.getUserRole().equals(BigInteger.ZERO) ? "userindex?faces-redirect=true" : "index?faces-redirect=true";
             }
         } catch(Exception e){ }
-        return "auth?faces-redirect=true";
+        return "/auth?faces-redirect=true";
     }
     
     public String clearCurrentUser(){
