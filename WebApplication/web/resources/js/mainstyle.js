@@ -15,8 +15,8 @@ function hideFlights() {
         var from = $(".cityFrom").text().trim(), to = $(".cityTo").text().trim();
         var rows = $("tbody").eq(0).children("tr");
         for (var i = 0; i < rows.size(); i++) {
-            var currentFrom = rows.children("td").eq(0).text();
-            var currentTo = rows.children("td").eq(1).text();
+            var currentFrom = rows.eq(i).children("td").eq(0).text();
+            var currentTo = rows.eq(i).children("td").eq(1).text();
             if(currentFrom != from || currentTo != to){
                 rows[i].remove();
             }
