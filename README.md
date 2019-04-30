@@ -5,7 +5,7 @@ Theme: Airport (Automated flight control system)<br>
 Application type: web application <br>
 Language: JAVA  <br>
 Framework: MVC <br>
-DB: Oracle <br>
+DB: JavaDB <br>
  <br>
 Authors:
  - KrautsovaNastassia (Кравцова Анастасия Александровна)
